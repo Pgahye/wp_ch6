@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+var s = "Hello";
+var s2 = new String("hello");
+/* 기본형이라서 오류발생
+s.myfunc = function(){
+	
+	console.log("!!!");
+	
+}
+s.myfunc();
+*/
+s2.myfunc = function(){
+	
+	console.log("!!!");
+}
+s2.myfunc();
+
+
+
+//전역객체 window
+
+var number = 10; 
+
+console.log(window.number);
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

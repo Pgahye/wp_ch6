@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>
+//기본데이터 타입 
+var s = "hello world";
+var i = 10;
+var pi = 3.14;
+var c = 'h';
+var bo = true;
+var u;
+var n=null;
+
+console.log(typeof s);
+console.log(typeof i);
+console.log(typeof pi);
+console.log(typeof c);
+console.log(typeof bo);
+console.log(typeof u);
+console.log(typeof n);
+console.log("=========================");
+// object type ( 자바에서는 reference type)
+var s2=new String("hello world");
+var i2=new Number(10);
+var b2=new Boolean(false);
+var o2=new Object();
+
+
+console.log(typeof s2); // 타입이 나름 정해진거같지만 object 이다. 
+console.log(typeof i2);
+console.log(typeof s2);
+console.log(typeof o2);
+
+console.log(s2.toUpperCase());
+
+// null과  undefinded
+
+var var1;
+var var2=null;
+
+console.log(var1+","+var2);
+console.log(var1 == var2); // 캐스팅이 일어나면서 비교 
+console.log(var1 === var2); //타입까지 비교
+
+
+console.log("2" == 2); //명시적으로 표시해줘야 햇깔리지 않음 
+console.log(false == 2);
+console.log(false == 0);
+console.log("2" === 2);
+
+// 동적타이핑, 가능하지만 최대한 쓰지 않는 것이 좋다 
+
+var var3= "string";
+console.log(typeof var3);
+
+var3 = 10;
+
+console.log(typeof var3);
+
+
+</script>
+</head>
+<body>
+<div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color:#D94A38;width:90px;height:20px;padding:40px;">클릭하세요!</div>
+</body>
+</html> 

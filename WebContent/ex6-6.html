@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+
+var Rectangle = function(x1,y1,x2,y2, color){
+	
+	this.x1=x1;
+	this.y1=y1;
+	this.x2=x2;
+	this.y2=y2;
+	this.color=color;
+	
+	
+}
+
+Rectangle.prototype.borderColor ="#111";
+Rectangle.prototype.show = function(){
+	
+	console.log((this.x2-this.x1)+","+ (this.y2-this.y1)
+			+","+this.color+"인 사각형을 그렸습니다. ");
+	
+	document.write("<div style='position: absolute;"+
+		"left:"+this.x1+"px;"+
+		"top:"+this.y1+"px;"+
+		"width:"+ (this.x2-this.x1) + "px;"+
+		"height:"+(this.y2-this.y1)+"px;"+
+		"background-color:"+this.color+";"+
+		"border: 5px solid"+this.borderColor+
+		"'></div>"
+
+	);
+	
+}
+
+
+
+var re1 = new Rectangle(10,20,30,40, "#555");
+
+re1.show();
+
+
+var re2 = new Rectangle(100,200,300,400, "#777");
+
+re2.show();
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

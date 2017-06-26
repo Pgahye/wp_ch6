@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+Array.prototype.removeAt= function(index){
+	
+	var a = this.slice(0,index);
+	
+	var b = a.concat(this.slice(index+1, this.length+1));
+	console.log(b);
+	
+	return b;
+	
+}
+
+Array.prototype.remove= function(index){
+	
+	this.splice( index, 1);
+	 
+}
+
+Array.prototype.insert= function(index, item){
+	
+	this.splice( index, 0, item);
+	 
+}
+
+//concat
+var hege = [ "Cecilie", "Lone" ];
+var stale = [ "Emil", "Tobias", "Linus" ];
+var children = hege.concat( stale );
+
+console.log( children );
+
+//join ( string으로 만들어줌)
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+var energy = fruits.join(':');
+
+console.log( energy );
+
+
+// push , pop
+var fruits = [ "Banana", "Orange", "Apple", "Mango" ];
+fruits.push( "Kiwi" );
+console.log( fruits );
+
+console.log( fruits.pop() );
+console.log( fruits.pop() );
+
+console.log( fruits );
+
+// reverse , shift, clice, sort
+var fruits = [ "Banana", "Orange", "Apple", "Mango" ];
+
+fruits.reverse();
+console.log( fruits );
+
+fruits.shift();
+console.log( fruits );
+
+fruits.push("melon");
+fruits.push("watermelon");
+
+console.log( fruits );
+
+
+fruits.splice(1,1 ); // index, count (1,1) 하나만 지워라
+console.log( fruits );
+
+
+var citrus = fruits.slice(1, 3);
+console.log( citrus );
+
+fruits.sort();
+console.log( fruits );
+
+
+//removeat
+
+var a3 = fruits.removeAt(1);
+console.log(a3);
+
+// remove
+
+var a4= fruits.remove(2);
+console.log(a4);
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

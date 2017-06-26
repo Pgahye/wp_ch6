@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+// 객체 생성 1 : 생성자 함수
+
+var o = new Object();
+o.name = "둘리";
+o.age = 30;
+
+o.info = function(){
+	console.log(this.name + " "+ this.age);
+}
+
+o.info();
+
+// 객체 생성 2 : 리터럴 
+
+var o2 = {};
+o2.name = "둘리";
+o2.age = 30;
+
+o2.info = function(){
+	console.log(this.name + " "+ this.age);
+}
+
+//o2.info();
+
+// 객체 생성 3 : JSON (javascript object notation )
+
+var json = {
+		
+	"name" : "둘리",
+	"age" : 30,
+	"info" : function(){
+		console.log(this.name + " "+ this.age);
+	}
+		
+};
+
+//json.info();
+
+
+//console.log(json.name);
+//console.log(json.age);
+
+// 생성자 함수 
+
+var User = function(name, age){
+	this.name = name;
+	this.age=age;
+	this.info= function(){
+		console.log(this.name + ":" + this.age);
+		
+	}
+	
+
+}
+
+var user1 = new User("둘리", 20);
+var user2 = new User("마이콜", 30);
+var user3 = new User("도우넛", 40);
+
+
+user1.info();
+user2.info();
+user3.info();
+
+// 프로토타입
+var User1 = function(name, age){
+	this.name = name;
+	this.age=age;
+	
+	
+
+}
+User1.prototype.info= function(){
+	console.log(this.name + ":" + this.age+ ":"+ this.school);
+	
+}
+User1.prototype.school= "비트 스쿨";
+
+var user11 = new User1("둘리", 20);
+var user22 = new User1("마이콜", 30);
+var user33 = new User1("도우넛", 40);
+user33.school= "멀캠";
+
+user22.info= function(){
+	
+	
+}
+
+user11.info();
+user22.info(); // 먼저 자기 객체 안에 있는 속성을 출력 없으면 공유하고 있는 프로토 타입의 속성을 가지고옴 
+user33.info();
+
+
+var Foo = function(){
+	
+	
+	
+}
+Foo.prototype.aNumber = 5;
+Foo.prototype.doFool = function(){
+	
+		console.log(this.aNumber);
+}
+
+
+var foo1 = new Foo();
+var foo2 = new Foo();
+
+foo1.doFool();
+foo2.aNumber = 10;
+foo2.doFool();
+
+</script>
+</head>
+<body>
+	<h1>객체의 생성</h1>
+</body>
+</html>
