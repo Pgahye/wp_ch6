@@ -4,31 +4,109 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-function myFunction() {
-   var x = document.getElementById( "fname" );
-   x.value=x.value.toUpperCase();
-}
 
-function selectChanged(){
-	alert("!");
-}
+window.addEventListener("load", function(){
+	
+	document.getElementById("my-sel").addEventListener("change", function(){
+	
+		var elSelect = this;
+		
+		
+		console.log(elSelect.selectedIndex);
+		console.log(elSelect.options[elSelect.selectedIndex].value);
+		
+	});
+	
+	
+	document.getElementById("my-input").addEventListener("change", function(){ // 포커스가 변할때 change
+		
+		console.log("change");
+		
+	});
+	
+	
+	document.getElementById("my-input").addEventListener("focus", function(){ 
+		
+		console.log("focus");
+		this.style.border = "3px solid #044419";
+		this.style.backgroundColor = "#90C028";
+		
+	});
+	
+	
+	document.getElementById("my-input").addEventListener("blur", function(){ 
+		
+		console.log("blur");
+		this.style.backgroundColor = "#fff";
+	});
+	
+	
+	document.getElementById("my-check").addEventListener("click", function(){ 
+		
+		console.log(this.checked);
+	
+	});
+	
+
+	document.getElementById("my-form").onsubmit = function(){ 
+		
+		
+	var inputEmail = document.getElementById("my-input");
+	
+	var inputcheck = document.getElementById("my-check");
+	
+	if(inputEmail.value == ""){
+		alert("이메일은 필수 항목 입니다. ");
+		return false; //true일때 이동함 
+	}
+	
+	
+	
+	if (inputcheck.checked ==false){
+		
+		alert("약관에 동의 하셔야 합니다  ");
+		return false;
+	}
+		
+		return true; //true일때 이동함 
+	
+		
+
+	
+	};
+	
+	document.getElementById("my-input").focus(); //로드시 원하는 곳으로 focus됨
+	
+	
+});
+
+
+
+
 
 </script>
 </head>
 <body>
-<select onchange="selectChanged()">
-	<option>value1</option>
-	<option>value2</option>
-	<option>value3</option>
-	<option>value4</option>
-	<option>value5</option>
-</select>
+<form action="join" method="post" id="my-form">
+
+	<select id="my-sel">
+		<option value="v1">value1</option>
+		<option value="v2">value2</option>
+		<option value="v3">value3</option>
+		<option value="v4">value4</option>
+		<option value="v5">value5</option>
+	</select>
 <br>
-아이디 입력: <input type="text" id="fname" onchange="myFunction()">
+아이디 입력: <input style="outline:none;" type="text" id="my-input">
+<br>
+약관동의 : <input type="checkbox" id="my-check">
 
-<p>
-	INPUT에 포커스가 없어지면, 이전 값이 변했는 지 판단해서 항상 대문자로 만드는 예제입니다.
-</p>
 
+<br>
+
+<input type="submit" value="가입" id="my-submit">
+
+
+</form>
 </body>
 </html>

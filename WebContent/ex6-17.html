@@ -4,16 +4,51 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-var changeText = function(el){
-	el.innerHTML = "Ooops!";
+
+var onclicked = function(){
+	
+	console.log('clicked');
+	
 }
+
+var onload = function(){ // window.addEventListener("load", function(){} 함수를 따로 분리해줘도 되고, 안해줘도 됨 !!! 
+	
+	var el = document.getElementById("my-h1"); //dom이 구성된다음 작동해야 한다 . 그래서 window.onload 필요함 
+	
+	// dom level 0 일때, 
+	el.onclick= onclicked;
+	
+	
+	
+	//dom level 2  이벤트를 여러개 할수도 있음, 0레벨에서는 불가능 
+	
+	var el2 = document.getElementById("my-h2");
+	el2.addEventListener("click", function(){
+		
+		console.log('clicked');
+	}); //이벤트 이름 지정 
+	
+	el2.addEventListener("click", function(){
+		
+		console.log('clicked2');
+	});
+}
+
+
+window.addEventListener("load",onload); 
+
+
 </script>
 </head>
 <body>
 <!--
 <h1 onclick="this.innerHTML='Ooops!';">Click on this text!</h1>
--->
-<h1 onclick="changeText(this)">Click on this text!</h1>
 
+<h1 onclick="console.log('clicked'); ">Click on this text!</h1>
+-->
+<h1 onclick="console.log('clicked'); ">Click on this text1!</h1>
+<h1 onclick="onclicked(); ">Click on this text2!</h1>
+<h1 id="my-h1">Click on this text3!</h1>
+<h1 id="my-h2">Click on this text3!</h1>
 </body>
 </html>

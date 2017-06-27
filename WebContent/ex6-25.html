@@ -4,19 +4,52 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-function mDown( obj ) {
-  obj.style.backgroundColor="#1ec5e5";
-  obj.innerHTML="버튼을 떼주세요.";
-}
-function mUp( obj ) {
-  obj.style.backgroundColor="#D94A38";
-  obj.innerHTML="클릭하세요!";
-}
+
+window.addEventListener("load", function(){
+	
+	var elDiv = document.getElementById("my-box");
+	
+	elDiv.addEventListener("mousedown", function(){
+	
+		var el = this;// HTML Element
+		
+		el.style.backgroundColor = "#00f";
+		el.innerHTML = "마우스 버튼을 UP하세요";
+		
+		
+		//jquary style 주로 함수호출 
+		
+	//	var $el = $(this);
+	//	$el.css("backgroundColor","#00f" );
+	//	$el.update("마우스 버튼을 UP하세요");
+	//	$el.hide();
+		//element를 숨길때(hide)
+		
+	//	el.style.display= "none";
+		
+		
+	});
+	
+	elDiv.addEventListener("mouseup", function(){
+		var el = this;
+		el.style.backgroundColor = "#D94A38";
+		el.innerHTML = "클릭하세요";
+		
+		//el.style.display= "block";
+		
+	});
+	
+});
+
+
+
+
 </script>
 
 </head>
 <body>
-<div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
+<div id="my-box" style="background-color:#D94A38;
+	width:90px;height:20px;padding:40px;">
 	클릭하세요!
 </div>
 </body>

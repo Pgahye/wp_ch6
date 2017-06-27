@@ -4,36 +4,65 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-function myFunction( ) {
-  // 값
-  alert("I have an argument! " + arguments[0] );
-	  
-  // 객체
-  alert(arguments[1].bar);
-	  
-  // 함수 
-  arguments[2]();
-} 
 
 
-var b = { bar: "baz" };
 
-/*
-var f = function(){ 
-	alert("Victory!");
-} 
-*/
 
-/*
-myFunction( "foo", { bar: "baz"}, funtion(){ 
-	alert("Victory");
+
+var f = function(arg1, arg2, arg3){
+	
+	console.log(arg1);
+	console.log(arg2.name);
+	arg2.f();
+	arg3();
+	
+};
+
+f(10, { 
+	name : "둘리",
+	f: function(){
+		
+	console.log("안녕"+this.name);	}
+	},
+	function(){console.log("hello");
+
 });
-*/
+
+//파라미터가 동적일 경우 사용함 arguments
+var f = function(){
+	
+	console.log(arguments[0]);
+	console.log(arguments[1].name);
+	arguments[1].f();
+	arguments[2]();
+	
+};
 
 
-(function(){ 
-	alert("Victory");
-})();
+//동적파라미터 테스트
+var f2 = function(){
+	var lengthArgs = arguments.length;
+	
+	for(var i=0; i<lengthArgs; i++){
+		console.log(arguments[i]);
+		
+	}
+	
+};
+
+f2(10,20,30);
+f2(10,20,30,40,50);
+
+
+//한번만 사용하고 버리기 위해  var a=10; 으로 사용하면 메모리상에 지역변수로 올라감....메모리 사용을 줄이기 위해서
+console.log((function(a,b,c) {
+	
+	return a+b+c;
+})(100,200,300));
+
+
+
+
 
 
 </script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//함수생성1 (비추)
+
+var f1 = new Function("a", "b", "c", "var sum = a+b+c; return sum;");
+console.log(f1(10,20,30));
+
+//함수생성2 (완전비추)
+function f2(a,b,c){
+	
+	var sum = a+b+c;
+	return sum;
+	
+}
+console.log(f2(10,20,30));
+//함수생성3 (추천)
+
+var f3 = function(a,b,c){
+	
+	var sum = a+b+c;
+	return sum;
+}
+console.log(f3(10,20,30));
+console.log(window.f3());
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

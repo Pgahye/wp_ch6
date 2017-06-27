@@ -3,28 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="browser-detect.js" type="text/javascript">
+
+	
+
+</script>
+
+
 <script type="text/javascript">
 
-function onLoad() {
-	/*
-	document.getElementById("myBtn").onclick = function(){
-	   displayDate();
-	};
-	*/
+window.addEventListener("unload", function(){
 	
-	document.getElementById("myBtn").onclick = displayDate;
-}
+	//현재 페이지를 떠날때 
+	console.log("unload");
+	
+});
 
-function displayDate(){
-   document.getElementById("demo").innerHTML = Date();
-}
+
+
+
+window.addEventListener("load", function(){
+	
+	
+	BrowserDetect.init();
+
+	//window.location 
+	
+	var el = document.getElementById("btn-reload");
+	el.addEventListener("click", function(){
+		
+		location.reload(false); //f5 (캐쉬되어있는걸 가지고옴)
+		location.reload(true); // ctrl + f5 (서버에서 가지고옴 )
+		
+	});
+	
+	//window navigator
+	
+	if(navigator.cookieEnabled == true){
+		
+		console.log("쿠키를 사용 할 수 있습니다. ");
+	}else{
+		
+		console.log("쿠키를 사용 할 수 없습니다. ");
+	}
+	
+	
+	console.log(navigator.userAgent);
+	console.log(navigator.vendor);
+	console.log(navigator.platform);
+	
+	console.log(BrowserDetect.browser);
+	console.log(BrowserDetect.version);
+	console.log(BrowserDetect.OS);
+
+
+	// window history
+	document.getElementById("btn-prev").
+	addEventListener("click", function(){
+		
+		history.go(-1);
+	});
+
+	
+	// window status (상태표시줄)
+	window.status = "안녕하세요~";
+	
+})
+
+
+
+
 </script>
 
 </head>
 
-<body onload="onLoad();">
-	<p>버튼을 클릭하면  <em>displayDate()</em> 함수가 실행 됩니다.</p>
-	<button id="myBtn">Try it</button>
-	<p id="demo"></p>
+<body>
+	<div id="btn-reload">reload</div>
+	<div id="btn-prev">이전페이지</div>
 </body>
 </html>

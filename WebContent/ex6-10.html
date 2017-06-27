@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+
+	// 길이
+	var str = "hello, i'm string";
+	
+	console.log(str.length);
+	
+	//배열로 접근가능
+	for(var i=0; i< str.length; i++){
+		console.log(str[i]);
+		console.log(str.charAt(i));
+		
+	}
+	
+	// +연산 (캐스팅이 일어남 string(20))
+	
+	var str2 = "hello" + " "+ "world";
+	
+	console.log(str2);
+	
+	var str3 = "number:"+20;
+	
+	console.log(str3);
+	
+	var str4= "5"+5;
+	
+	console.log(str4);
+	
+	var str5= 5+"5"; // string으로 캐스팅됨
+	
+	console.log(str5);
+	
+	
+	//전역함수?는 존재하지 않음, window 함수를 사용
+	
+	console.log(parseInt("5",10) + 5);
+	
+	
+
+
+
+</script>
+
+
+</head>
+<body>
+
+</body>
+</html>
